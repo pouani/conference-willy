@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Séminaire Gratuit - Votre Pourquoi de la Vie</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #4a47a3 0%, #3d3a8c 100%);
+            color: white;
+            padding: 1rem 0;
+        }
+
+        .top-bar {
+            background: rgba(0,0,0,0.2);
+            padding: 0.5rem 0;
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            color: #ffd700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .phone {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #4a47a3 0%, #3d3a8c 100%);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            right: -20%;
+            top: 0;
+            width: 60%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="people" patternUnits="userSpaceOnUse" width="300" height="200"><circle cx="150" cy="100" r="80" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23people)"/></svg>') no-repeat center;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: #ffd700;
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #4a47a3;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(45deg, #ffd700 0%, #ffed4e 100%);
+            color: #333;
+            padding: 1.5rem 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Welcome Section */
+        .welcome {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .welcome-tag {
+            background: #ffd700;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .welcome h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .welcome p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        /* Services Grid */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-image {
+            height: 200px;
+            background: linear-gradient(45deg, #4a47a3, #6c63ac);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            margin-bottom: 1rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .benefits-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .benefits-image {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #4a47a3;
+        }
+
+        .benefits h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .benefit-features {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            flex: 1;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #f8f9fa;
+            padding: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: #4a47a3;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* CTA Sections */
+        .cta-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            background: #2c3e50;
+            color: white;
+        }
+
+        .cta-section {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            transition: background 0.3s;
+        }
+
+        .cta-section:hover {
+            background: rgba(255,215,0,0.1);
+        }
+
+        .cta-section:last-child {
+            border-right: none;
+        }
+
+        .cta-icon {
+            background: #ffd700;
+            color: #333;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .cta-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-content,
+            .benefits-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .service-card,
+        .stat-item {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <span>Formation Professionnelle | Développement Personnel | FAQ</span>
+            </div>
+        </div>
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <i class="fas fa-lightbulb"></i>
+                    NEW WORLD AGENCY
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#accueil">ACCUEIL</a></li>
+                    <li><a href="#seminaire">SÉMINAIRE</a></li>
+                    <li><a href="#inscription">INSCRIPTION</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+                <div class="phone">
+                    <i class="fas fa-phone"></i> +237 6XX XXX XXX
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-content">
+                <h1>VOTRE POURQUOI DE LA VIE</h1>
+                <p class="hero-subtitle">Découvrez votre motivation profonde et transformez votre vie grâce à ce séminaire exceptionnel 100% GRATUIT</p>
+                <div class="cta-buttons">
+                    <a href="#inscription" class="btn btn-primary">S'INSCRIRE GRATUITEMENT</a>
+                    <a href="#details" class="btn btn-secondary">EN SAVOIR PLUS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section class="promo-banner">
+        <div class="container">
+            <strong>📅 Samedi 23 Août 2025 à 17h - Hôtel LEWAT, Rue Vallée Bessengue, Douala - ENTRÉE GRATUITE</strong>
+            <a href="#inscription" class="btn btn-primary" style="margin-left: 2rem; padding: 0.5rem 1.5rem;">S'INSCRIRE</a>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome" id="details">
+        <div class="container">
+            <span class="welcome-tag">BIENVENUE</span>
+            <div class="section-content">
+                <div>
+                    <h2>Découvrez votre raison d'être et vivez pleinement</h2>
+                    <p>Le Cabinet New World Agency Consulting vous offre gratuitement un séminaire intitulé "VOTRE POURQUOI DE LA VIE". Ce séminaire vous nourrira de résolutions fermes et de la persévérance nécessaire pour atteindre vos objectifs malgré les obstacles et les difficultés rencontrées.</p>
+                </div>
+                <div>
+                    <p>Vous serez impliqué dans un engagement profond et développerez une motivation intrinsèque pour surmonter les défis et réaliser ce que vous vous êtes fixé. Une opportunité unique de transformation personnelle vous attend.</p>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-image">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-users"></i> Développement Personnel</h3>
+                        <p>Découvrez vos valeurs profondes et alignez vos actions avec votre mission de vie</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <i class="fas fa-target"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-bullseye"></i> Définition d'Objectifs</h3>
+                        <p>Apprenez à fixer des objectifs clairs et développez la persévérance pour les atteindre</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-chart-line"></i> Motivation Intrinsèque</h3>
+                        <p>Cultivez une motivation durable qui vous permettra de surmonter tous les obstacles</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-content">
+                <div class="benefits-image">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <span class="welcome-tag">AVANTAGES</span>
+                    <h2>Avec New World Agency, plus de tracas et plus d'inquiétudes</h2>
+                    <div class="benefit-features">
+                        <div class="feature">
+                            <strong>Formation Gratuite</strong>
+                            <p>Accès libre et gratuit</p>
+                        </div>
+                        <div class="feature">
+                            <strong>Experts Reconnus</strong>
+                            <p>Formateurs certifiés</p>
+                        </div>
+                        <div class="feature">
+                            <strong>Résultats Garantis</strong>
+                            <p>Transformation assurée</p>
+                        </div>
+                    </div>
+                    <p>Participez à une expérience transformatrice qui vous donnera les clés pour découvrir votre "pourquoi" et vivre une vie alignée avec vos valeurs les plus profondes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <span class="welcome-tag">NOS RÉSULTATS</span>
+            <h2 style="text-align: center; margin-bottom: 3rem;">Ce que nous avons accompli</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Participants Formés</p>
+                </div>
+                <div class="stat-item">
+                    <h3>95%</h3>
+                    <p>Taux de Satisfaction</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Années d'Expérience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Formations Données</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Sections -->
+    <section class="cta-sections" id="inscription">
+        <div class="cta-section">
+            <div class="cta-icon">
+                <i class="fas fa-calendar-check"></i>
+            </div>
+            <h3>Inscription Gratuite</h3>
+            <p>Réservez votre place dès maintenant pour ce séminaire exceptionnel. Places limitées.</p>
+        </div>
+        <div class="cta-section">
+            <div class="cta-icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <h3>Formateurs Experts</h3>
+            <p>Bénéficiez de l'expertise de formateurs reconnus dans le développement personnel.</p>
+        </div>
+        <div class="cta-section">
+            <div class="cta-icon">
+                <i class="fas fa-gift"></i>
+            </div>
+            <h3>Séminaire Gratuit</h3>
+            <p>Une formation de qualité offerte gratuitement par New World Agency Consulting.</p>
+        </div>
+        <div class="cta-section">
+            <div class="cta-icon">
+                <i class="fas fa-phone"></i>
+            </div>
+            <h3>Contact Direct</h3>
+            <p>Contactez-nous pour toute question ou pour confirmer votre inscription au séminaire.</p>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation to stats when they come into view
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-item, .service-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
