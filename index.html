@@ -42,19 +42,18 @@
             display: flex;
             align-items: center;
             padding: 1rem 0;
+            justify-content: center;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.2rem;
             font-weight: bold;
             display: flex;
             text-align: center;
             align-items: center;
-        }
-
-        .logo i {
-            margin-right: 0.5rem;
             color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .nav-links {
@@ -77,6 +76,88 @@
         .phone {
             color: #ffd700;
             font-weight: bold;
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .countdown-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .time-unit {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 1.5rem 1rem;
+            min-width: 100px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .time-unit:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .time-number {
+            font-size: 1rem;
+            font-weight: bold;
+            display: block;
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .time-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .countdown-message {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .countdown-urgent {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         /* Hero Section */
@@ -113,6 +194,12 @@
             align-items: center;
         }
 
+        .hero-text h2 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
         .hero-text h1 {
             font-size: 2.8rem;
             text-transform: uppercase;
@@ -122,9 +209,10 @@
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            line-height: 1.6;
         }
 
         .cta-buttons {
@@ -576,6 +664,28 @@
                 padding: 2rem;
                 margin: 1rem;
             }
+
+            .countdown-timer {
+                gap: 1rem;
+            }
+
+            .time-unit {
+                min-width: 80px;
+                padding: 1rem 0.5rem;
+            }
+
+            .time-number {
+                font-size: 2rem;
+            }
+
+            .countdown-title {
+                font-size: 1.1rem;
+            }
+
+            .logo {
+                font-size: 1rem;
+                text-align: center;
+            }
         }
 
         /* Animations */
@@ -659,7 +769,6 @@
 
     <!-- Header -->
     <header class="header">
-        
         <div class="container">
             <nav class="nav">
                 <div class="logo">
@@ -669,19 +778,43 @@
         </div>
     </header>
 
+    <!-- Countdown Section -->
+    
+
     <!-- Hero Section -->
     <section class="hero" id="accueil">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h2 style="color: #ffd700;">New World Agency</h2>
+                    <h2>New World Agency</h2>
                     <h1>Découvrez votre raison d'être et vivez pleinement</h1>
                     <p class="hero-subtitle">Le Cabinet New World Agency Consulting vous offre gratuitement un séminaire intitulé "VOTRE POURQUOI DE LA VIE". Ce séminaire vous nourrira de résolutions fermes et de la persévérance nécessaire pour atteindre vos objectifs malgré les obstacles et les difficultés rencontrées.
 
 Vous serez impliqué dans un engagement profond et développerez une motivation intrinsèque pour surmonter les défis et réaliser ce que vous vous êtes fixé. Une opportunité unique de transformation personnelle vous attend.</p>
-                    <div class="cta-buttons">
-                        <a href="#details" class="btn btn-secondary">EN SAVOIR PLUS</a>
-                    </div>
+                    
+
+                    <section class="countdown-section">
+                        <div>
+                            <div class="countdown-timer" id="countdown">
+                                <div class="time-unit">
+                                    <span class="time-number" id="days">00</span>
+                                    <span class="time-label">Jours</span>
+                                </div>
+                                <div class="time-unit">
+                                    <span class="time-number" id="hours">00</span>
+                                    <span class="time-label">Heures</span>
+                                </div>
+                                <div class="time-unit">
+                                    <span class="time-number" id="minutes">00</span>
+                                    <span class="time-label">Minutes</span>
+                                </div>
+                                <div class="time-unit">
+                                    <span class="time-number" id="seconds">00</span>
+                                    <span class="time-label">Secondes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
 
                 <!-- Formulaire d'inscription dans le Hero -->
@@ -730,7 +863,6 @@ Vous serez impliqué dans un engagement profond et développerez une motivation 
     <!-- Welcome Section -->
     <section class="welcome" id="details">
         <div class="container">
-            <span class="welcome-tag">BIENVENUE</span>
             <div class="section-content">
                 <div>
                     <h2>Découvrez votre raison d'être et vivez pleinement</h2>
@@ -859,16 +991,63 @@ Vous serez impliqué dans un engagement profond et développerez une motivation 
                 <i class="fas fa-phone"></i>
             </div>
             <h3>Contact Direct</h3>
-            <p>Contactez-nous pour toute question ou pour confirmer votre inscription au séminaire.</p>
+            <p>nywtchouly@yahoo.fr / +237 694 241 365</p>
         </div>
     </section>
 
     <script>
-        // Fonction pour afficher le modal au chargement de la page
+        // Compte à rebours
+        function initCountdown() {
+            // Date du séminaire : 23 Août 2025 à 17h (vous pouvez modifier cette date)
+            const seminarDate = new Date('2025-08-23T17:00:00').getTime();
+            
+            const countdownInterval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = seminarDate - now;
+                
+                // Calcul du temps restant
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Mise à jour de l'affichage
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                // Animation lors du changement des secondes
+                const secondsElement = document.getElementById('seconds');
+                secondsElement.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    secondsElement.style.transform = 'scale(1)';
+                }, 100);
+                
+                // Si le compte à rebours est terminé
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.querySelector('.countdown-section').innerHTML = `
+                        <div class="container">
+                            <h2 class="countdown-title">🎯 Le Séminaire a Commencé !</h2>
+                            <p class="countdown-message" style="font-size: 1.3rem; margin-top: 2rem;">
+                                Rejoignez-nous maintenant ou contactez-nous pour la prochaine session.
+                            </p>
+                        </div>
+                    `;
+                }
+            }, 1000);
+        }
+
+        // Initialisation au chargement de la page
         window.addEventListener('load', function() {
+            // Démarrer le compte à rebours
+            initCountdown();
+            
+            // Afficher le modal après 2 secondes
             setTimeout(() => {
                 document.getElementById('welcomeModal').classList.add('active');
-            }, 2000); // Attendre 2 secondes avant d'afficher le modal
+            }, 2000);
         });
 
         // Fonction pour fermer le modal
