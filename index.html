@@ -1170,7 +1170,8 @@ function handleModalSubmit(event) {
                 Email: data.email,
                 Phone: data.phone
             };
-
+// display none du boutton de l'inscription
+                document.querySelector('.submit-btn').style.display = 'none';
             // Envoi vers la feuille
             fetch('https://sheetdb.io/api/v1/pcmvx1nc24z2c', {
                 method: 'POST',
@@ -1179,13 +1180,15 @@ function handleModalSubmit(event) {
             })
             .then(res => {
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                // display du boutton de l'inscription
+                document.querySelector('.submit-btn').style.display = 'block';
                 return res.json();
             })
             .then(() => {
                 document.getElementById(successElementId).classList.add('show');
                 setTimeout(() =>
                 document.getElementById(successElementId).classList.remove('show'),
-                5000
+                6000
                 );
             })
             .catch(err => {
