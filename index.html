@@ -872,24 +872,26 @@
                             ✅ Inscription réussie ! Vous recevrez bientôt un email de confirmation.
                         </div>
 
-                        <div class="form-group">
-                            <label for="heroName">Nom complet <span class="required">*</span></label>
-                            <input type="text" id="heroName" name="name" required placeholder="Votre nom complet">
-                        </div>
+                        <div id="heroFormContainer">
+                            <div class="form-group">
+                                <label for="heroName">Nom complet <span class="required">*</span></label>
+                                <input type="text" id="heroName" name="name" required placeholder="Votre nom complet">
+                            </div>
 
-                        <div class="form-group">
-                            <label for="heroEmail">Email</label>
-                            <input type="email" id="heroEmail" name="email" placeholder="votre@email.com">
-                        </div>
+                            <div class="form-group">
+                                <label for="heroEmail">Email</label>
+                                <input type="email" id="heroEmail" name="email" placeholder="votre@email.com">
+                            </div>
 
-                        <div class="form-group">
-                            <label for="heroPhone">Téléphone <span class="required">*</span></label>
-                            <input type="tel" id="heroPhone" name="phone" required placeholder="+237 6XX XXX XXX">
-                        </div>
+                            <div class="form-group">
+                                <label for="heroPhone">Téléphone <span class="required">*</span></label>
+                                <input type="tel" id="heroPhone" name="phone" required placeholder="+237 6XX XXX XXX">
+                            </div>
 
-                        <button type="submit" class="submit-btn">
-                            🎯 JE M'INSCRIS GRATUITEMENT
-                        </button>
+                            <button type="submit" class="submit-btn">
+                                🎯 JE M'INSCRIS GRATUITEMENT
+                            </button>
+                        </div>
                     </form>
 
                     <p class="form-note">🔒 Inscription 100% gratuite et sécurisée</p>
@@ -1100,6 +1102,11 @@ Aujourd'hui, je me suis donné comme engagement sociétal  d'accompagner des ét
             // Démarrer le compte à rebours
             initCountdown();
 
+            if (localStorage.getItem('heroRegistered') === 'true') {
+                const formContainer = document.getElementById('heroFormContainer');
+                if (formContainer) formContainer.style.display = 'none';
+            }
+
             // Afficher le modal après 2 secondes
             setTimeout(() => {
                 document.getElementById('welcomeModal').classList.add('active');
@@ -1120,32 +1127,32 @@ Aujourd'hui, je me suis donné comme engagement sociétal  d'accompagner des ét
 
         // Fonction pour gérer la soumission du formulaire Hero
         function handleHeroSubmit(event) {
-    event.preventDefault();
+            event.preventDefault();
 
-    const nom = document.getElementById('heroName').value;
-    const email = document.getElementById('heroEmail').value;
-    const phone = document.getElementById('heroPhone').value;
+            const nom = document.getElementById('heroName').value;
+            const email = document.getElementById('heroEmail').value;
+            const phone = document.getElementById('heroPhone').value;
 
-    console.log('Inscription Hero:', { nom, email, phone });
+            console.log('Inscription Hero:', { nom, email, phone });
 
-    sendToSheetDB({ nom: nom, email: email, phone: phone }, 'heroSuccessMessage');
+            sendToSheetDB({ nom: nom, email: email, phone: phone }, 'heroSuccessMessage');
 
-    event.target.reset();
-}
+            event.target.reset();
+        }
 
-function handleModalSubmit(event) {
-    event.preventDefault();
+        function handleModalSubmit(event) {
+            event.preventDefault();
 
-    const nom = document.getElementById('modalName').value;
-    const email = document.getElementById('modalEmail').value;
-    const phone = document.getElementById('modalPhone').value;
+            const nom = document.getElementById('modalName').value;
+            const email = document.getElementById('modalEmail').value;
+            const phone = document.getElementById('modalPhone').value;
 
-    console.log('Inscription Modal:', { nom, email, phone });
+            console.log('Inscription Modal:', { nom, email, phone });
 
-    sendToSheetDB({ nom: nom, email: email, phone: phone }, 'modalSuccessMessage');
+            sendToSheetDB({ nom: nom, email: email, phone: phone }, 'modalSuccessMessage');
 
-    event.target.reset();
-}
+            event.target.reset();
+        }
 
         async function isDuplicate(email, phone) {
             const response = await fetch('https://sheetdb.io/api/v1/pcmvx1nc24z2c');
@@ -1170,8 +1177,7 @@ function handleModalSubmit(event) {
                 Email: data.email,
                 Phone: data.phone
             };
-// display none du boutton de l'inscription
-                document.querySelector('.submit-btn').style.display = 'none';
+
             // Envoi vers la feuille
             fetch('https://sheetdb.io/api/v1/pcmvx1nc24z2c', {
                 method: 'POST',
@@ -1180,16 +1186,20 @@ function handleModalSubmit(event) {
             })
             .then(res => {
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                // display du boutton de l'inscription
-                document.querySelector('.submit-btn').style.display = 'block';
                 return res.json();
             })
             .then(() => {
                 document.getElementById(successElementId).classList.add('show');
-                setTimeout(() =>
-                document.getElementById(successElementId).classList.remove('show'),
-                6000
-                );
+
+                if (successElementId === 'heroSuccessMessage') {
+                    localStorage.setItem('heroRegistered', 'true');
+                    document.getElementById('heroFormContainer').style.display = 'none';
+                }
+
+                // setTimeout(() =>
+                //     document.getElementById(successElementId).classList.remove('show'),
+                //     6000
+                // );
             })
             .catch(err => {
                 console.error(err);
