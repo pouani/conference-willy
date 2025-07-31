@@ -1139,6 +1139,7 @@ Aujourd'hui, je me suis donné comme engagement sociétal  d'accompagner des ét
             const scriptUrl = 'https://script.google.com/macros/s/AKfycbwP0HA0XzXSNvjQfKffIw__r3XQNrJ2WK-14GRuqJ7ZUtfiaE9LI-gQ95WCRV3odZhjGw/exec';
 
             fetch(scriptUrl, {
+                redirect: "follow",
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
