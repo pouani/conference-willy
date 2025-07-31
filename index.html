@@ -560,7 +560,8 @@
 
         .benefit-features {
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
+            flex-wrap: wrap;
             margin: 2rem 0;
         }
 
@@ -662,7 +663,8 @@
 
             .section-content,
             .benefits-content {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
                 gap: 2rem;
             }
 
@@ -775,7 +777,7 @@
                 </div>
 
                 <button type="submit" class="submit-btn">
-                    🎯 JE RÉSERVE MA PLACE GRATUITE
+                    🎯 JE RÉSERVE 
                 </button>
             </form>
 
@@ -945,7 +947,7 @@ Aujourd'hui, je me suis donné comme engagement sociétal  d'accompagner des ét
                 <div class="benefits-image">
                     <img src="bn.jpeg" alt="fly">
                 </div>
-                <div>
+                <div style="width: 100%;">
                     <span class="welcome-tag">AVANTAGES</span>
                     <h2>Avec New World Agency, plus de tracas et plus d'inquiétudes</h2>
                     <div class="benefit-features">
