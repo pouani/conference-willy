@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +27,7 @@
         }
 
         .top-bar {
-            background: rgba(0,0,0,0.2);
+            background: rgba(0, 0, 0, 0.2);
             padding: 0.5rem 0;
             text-align: right;
             font-size: 0.9rem;
@@ -87,8 +88,13 @@
         }
 
         @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
         }
 
         .countdown-title {
@@ -127,7 +133,7 @@
             font-weight: bold;
             display: block;
             line-height: 1;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .time-label {
@@ -156,13 +162,20 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
         }
 
         /* Hero Section */
-       .hero {
-            background-image: 
+        .hero {
+            background-image:
                 linear-gradient(135deg, rgba(74, 71, 163, 0.8), rgba(61, 58, 140, 0.8)),
                 url('header1.jpg');
             background-size: cover;
@@ -480,7 +493,7 @@
             background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
 
@@ -538,6 +551,7 @@
             max-width: 100%;
             height: auto;
         }
+
         .benefits h2 {
             font-size: 2.2rem;
             margin-bottom: 2rem;
@@ -593,12 +607,12 @@
         .cta-section {
             padding: 3rem 2rem;
             text-align: center;
-            border-right: 1px solid rgba(255,255,255,0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
             transition: background 0.3s;
         }
 
         .cta-section:hover {
-            background: rgba(255,215,0,0.1);
+            background: rgba(255, 215, 0, 0.1);
         }
 
         .cta-section:last-child {
@@ -632,12 +646,12 @@
             .nav-links {
                 display: none;
             }
-            
+
             .hero-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
+
             .hero-text h1 {
                 font-size: 2rem;
             }
@@ -645,17 +659,17 @@
             .hero-form {
                 padding: 2rem;
             }
-            
+
             .section-content,
             .benefits-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
+
             .cta-buttons {
                 flex-direction: column;
             }
-            
+
             .container {
                 padding: 0 1rem;
             }
@@ -694,6 +708,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -725,6 +740,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Modal -->
     <div class="modal-overlay" id="welcomeModal">
@@ -737,32 +753,32 @@
                 🆓 ENTRÉE GRATUITE
             </div>
             <p>Ne manquez pas cette opportunité unique de découvrir votre "pourquoi" de la vie. Places limitées !</p>
-            
+
             <form class="signup-form" onsubmit="handleModalSubmit(event)">
                 <div id="modalSuccessMessage" class="success-message">
                     ✅ Inscription réussie ! Vous recevrez bientôt un email de confirmation.
                 </div>
-                
+
                 <div class="form-group">
                     <label for="modalName">Nom complet <span class="required">*</span></label>
                     <input type="text" id="modalName" name="name" required placeholder="Votre nom complet">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="modalEmail">Email</label>
                     <input type="email" id="modalEmail" name="email" placeholder="votre@email.com">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="modalPhone">Téléphone <span class="required">*</span></label>
                     <input type="tel" id="modalPhone" name="phone" required placeholder="+237 6XX XXX XXX">
                 </div>
-                
+
                 <button type="submit" class="submit-btn">
                     🎯 JE RÉSERVE MA PLACE GRATUITE
                 </button>
             </form>
-            
+
             <p class="form-note">🔒 Vos informations sont sécurisées et ne seront jamais partagées.</p>
         </div>
     </div>
@@ -772,14 +788,15 @@
         <div class="container">
             <nav class="nav">
                 <div class="logo">
-                    ⏱ INSCRIS TOI DÈS MAINTENANT POUR PARTICIPER À UNE FORMATION EN MARKETING DIGITALE INEDITE ET TOTALEMENT GRATUITE !!!
+                    ⏱ INSCRIS TOI DÈS MAINTENANT POUR PARTICIPER À UN SEMINAIRE INEDIT ET
+                    TOTALEMENT GRATUITE !!!
                 </div>
             </nav>
         </div>
     </header>
 
     <!-- Countdown Section -->
-    
+
 
     <!-- Hero Section -->
     <section class="hero" id="accueil">
@@ -788,11 +805,16 @@
                 <div class="hero-text">
                     <h2>New World Agency</h2>
                     <h1>Découvrez votre raison d'être et vivez pleinement</h1>
-                    <p class="hero-subtitle">Le Cabinet New World Agency Consulting vous offre gratuitement un séminaire intitulé "VOTRE POURQUOI DE LA VIE". Ce séminaire vous nourrira de résolutions fermes et de la persévérance nécessaire pour atteindre vos objectifs malgré les obstacles et les difficultés rencontrées.
+                    <p class="hero-subtitle">Le Cabinet New World Agency Consulting vous offre gratuitement un séminaire
+                        intitulé "VOTRE POURQUOI DE LA VIE". Ce séminaire vous nourrira de résolutions fermes et de la
+                        persévérance nécessaire pour atteindre vos objectifs malgré les obstacles et les difficultés
+                        rencontrées.
 
-Vous serez impliqué dans un engagement profond et développerez une motivation intrinsèque pour surmonter les défis et réaliser ce que vous vous êtes fixé. Une opportunité unique de transformation personnelle vous attend.</p>
+                        Vous serez impliqué dans un engagement profond et développerez une motivation intrinsèque pour
+                        surmonter les défis et réaliser ce que vous vous êtes fixé. Une opportunité unique de
+                        transformation personnelle vous attend.</p>
 
-<br><br><br><br>
+                    <br><br><br><br>
 
                     <section class="countdown-section">
                         <div>
@@ -822,32 +844,32 @@ Vous serez impliqué dans un engagement profond et développerez une motivation 
                 <div class="hero-form">
                     <h3>🎯 Inscription Gratuite</h3>
                     <p>Réservez votre place pour le séminaire du <strong>23 Août 2025</strong></p>
-                    
+
                     <form onsubmit="handleHeroSubmit(event)">
                         <div id="heroSuccessMessage" class="success-message">
                             ✅ Inscription réussie ! Vous recevrez bientôt un email de confirmation.
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="heroName">Nom complet <span class="required">*</span></label>
                             <input type="text" id="heroName" name="name" required placeholder="Votre nom complet">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="heroEmail">Email</label>
                             <input type="email" id="heroEmail" name="email" placeholder="votre@email.com">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="heroPhone">Téléphone <span class="required">*</span></label>
                             <input type="tel" id="heroPhone" name="phone" required placeholder="+237 6XX XXX XXX">
                         </div>
-                        
+
                         <button type="submit" class="submit-btn">
                             🎯 JE M'INSCRIS GRATUITEMENT
                         </button>
                     </form>
-                    
+
                     <p class="form-note">🔒 Inscription 100% gratuite et sécurisée</p>
                 </div>
             </div>
@@ -868,32 +890,15 @@ Vous serez impliqué dans un engagement profond et développerez une motivation 
                 <div>
                     <h2 style="line-height: 1.2;">EVOLUTION vers le coaching de vie</h2>
                     <p>
+                        Connaître mon unicité a toujours été un challenge pour moi. Découvrir en quoi je suis unique et quelle est ma passion en terme de domaine d'activité.  
+Bien que cela a pris du temps car n'ayant pas eu l'opportunité de m'entourer de mentors et de coach de vie qui m'accompagneraient plus tôt vers qui JE SUIS, j'ai dû me poser de vraies questions sur moi-même, sur mon POURQUOI  pendant une longue periode de temps et de la mission qui m'ait destinée.  
 
-Dès mon enfance et surtout durant mon cursus scolaire j'ai été toujours sollicité par des personnes de mon entourage nettement plus âgées que moi qui sollitaient sans arrêt des conseils et appréciations suivant une situation de la vie assez difficile qu'elles traversaient.
-
-Etonnamment, je constatais à maintes reprises la qualité de mes conseils efficaces, dans la mesure où elles repartaient toujours satisfaites et soulagées d'entrevoir une solution à leur problème.   
-
-Je n'y prennais pas vraiment conscience de la facilité avec laquelle je pouvais entrevoir des solutions rapides après quelques minutes d'écoute.
-
-Ignorant qu'il s'agirait d'un talent ou d'une capacité croissante en moi. Cette facilité empathique à  remotiver des personnes blessées à se relever faisait sans effort.  
-
-Ne connaissant pas mon POURQUOI à l'époque, à la fin de mon cycle secondaire,  j'ai emprunté une voie académique juste par mimétisme et non par passion. 
-
-Les premières expériences professionnelles vécues après l'obtention de ces diplômes me permirent de comprendre que je n'étais pas dans  mon domaine d'activité.
-
-C'est ainsi que j'ai véritablement commencé à me poser de bonnes questions sur moi même et de savoir réellement dans quel domaine je suis excellent et imbattable;
-
-C'est après  plusieurs mois d'introspection que je compris que mon POURQUOI fusionnait avec Esprit de synthèse, Enseignement et  Conseil.  
-
-Étant à cet instant enfin conscient mes forces,  j'ai pu saisir l'opportunité  d'être promu au poste de directeur des ressources humaines dans une entreprise sans réels diplômes en la matière juste ma passion pour les relations humaines et mon talent. Assisté à ce poste par une responsable adjointe titulaire d'un master 2 en Gestion des Ressources Humaines.
-
- Malheureusement ou pas,  j'ai pris du temps à reconnaître mon POURQUOI car je n'avais pas de mentor ou de coach de vie à mes côtés afin de m'orienter plutôt vers qui j'étais. Raison pour laquelle je me suis donne comme mission en devenant coach de vie et formateur  d'accompagner autant que possible des apprenants à connaître réellement qui ils sont à travers leur POURQUOI  DE LA VIE qui cadre avec leur profession. 
-
-Lorsqu'on réussit à découvrir  son POURQUOI dans la vie on devient excellent dans son domaine d'activité. 
-
-Ma première oeuvre littéraire intitulée  LE VRAI POUVOIR (l'éveil maximal) illustre ce parcours avec des clés que je mets à votre disposition pour connaître votre unicité dans la vie.</p>
-
-<p style="font-weight: 700; color: black;">Willy NGNIGNIKOUA Coach de vie et formateur formateur à l'excellence des dirigeants</p>
+Après plusieurs années d'introspection et de questionnement,  j'ai enfin découvert que j'avais des qualités particulières qui fusionnent avec Esprit de Synthèse, Enseignement et Conseils de vie. Ce qui m'a permis d'occuper des hauts postes de responsabilités professionnelles liant les relations humaines et de devenir enfin coach de vie et formateur à l'excellence des dirigeants. 
+Aujourd'hui, je me suis donné comme engagement sociétal  d'accompagner des étudiants, chercheurs d'emploi, travailleurs et entrepreneurs à découvrir qui ils sont vraiment à travers  leur POURQUOI et qu'ils soient constamment joyeux dans leur vrai domaine d'activité. 
+                    </p>
+<br>
+                    <p style="font-weight: 700; color: black;">Willy NGNIGNIKOUA Coach de vie et formateur formateur à
+                        l'excellence des dirigeants</p>
                 </div>
                 <div style="max-width: 100%;">
                     <img src="pp.jpg" alt="profile" style="width: 100%;">
@@ -938,7 +943,7 @@ Ma première oeuvre littéraire intitulée  LE VRAI POUVOIR (l'éveil maximal) i
         <div class="container">
             <div class="benefits-content">
                 <div class="benefits-image">
-                    <img src="bn.png" alt="fly">
+                    <img src="bn.jpeg" alt="fly">
                 </div>
                 <div>
                     <span class="welcome-tag">AVANTAGES</span>
@@ -957,7 +962,8 @@ Ma première oeuvre littéraire intitulée  LE VRAI POUVOIR (l'éveil maximal) i
                             <p>Transformation assurée</p>
                         </div>
                     </div>
-                    <p>Participez à une expérience transformatrice qui vous donnera les clés pour découvrir votre "pourquoi" et vivre une vie alignée avec vos valeurs les plus profondes.</p>
+                    <p>Participez à une expérience transformatrice qui vous donnera les clés pour découvrir votre
+                        "pourquoi" et vivre une vie alignée avec vos valeurs les plus profondes.</p>
                 </div>
             </div>
         </div>
@@ -1022,34 +1028,36 @@ Ma première oeuvre littéraire intitulée  LE VRAI POUVOIR (l'éveil maximal) i
     </section>
 
     <script>
+
+
         // Compte à rebours
         function initCountdown() {
             // Date du séminaire : 23 Août 2025 à 17h (vous pouvez modifier cette date)
             const seminarDate = new Date('2025-08-23T17:00:00').getTime();
-            
-            const countdownInterval = setInterval(function() {
+
+            const countdownInterval = setInterval(function () {
                 const now = new Date().getTime();
                 const distance = seminarDate - now;
-                
+
                 // Calcul du temps restant
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
+
                 // Mise à jour de l'affichage
                 document.getElementById('days').textContent = days.toString().padStart(2, '0');
                 document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
                 document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
                 document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-                
+
                 // Animation lors du changement des secondes
                 const secondsElement = document.getElementById('seconds');
                 secondsElement.style.transform = 'scale(1.1)';
                 setTimeout(() => {
                     secondsElement.style.transform = 'scale(1)';
                 }, 100);
-                
+
                 // Si le compte à rebours est terminé
                 if (distance < 0) {
                     clearInterval(countdownInterval);
@@ -1066,10 +1074,10 @@ Ma première oeuvre littéraire intitulée  LE VRAI POUVOIR (l'éveil maximal) i
         }
 
         // Initialisation au chargement de la page
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             // Démarrer le compte à rebours
             initCountdown();
-            
+
             // Afficher le modal après 2 secondes
             setTimeout(() => {
                 document.getElementById('welcomeModal').classList.add('active');
@@ -1082,7 +1090,7 @@ Ma première oeuvre littéraire intitulée  LE VRAI POUVOIR (l'éveil maximal) i
         }
 
         // Fermer le modal en cliquant sur l'overlay
-        document.getElementById('welcomeModal').addEventListener('click', function(e) {
+        document.getElementById('welcomeModal').addEventListener('click', function (e) {
             if (e.target === this) {
                 closeModal();
             }
@@ -1091,48 +1099,67 @@ Ma première oeuvre littéraire intitulée  LE VRAI POUVOIR (l'éveil maximal) i
         // Fonction pour gérer la soumission du formulaire Hero
         function handleHeroSubmit(event) {
             event.preventDefault();
-            
+
             const name = document.getElementById('heroName').value;
             const email = document.getElementById('heroEmail').value;
             const phone = document.getElementById('heroPhone').value;
-            
+
             // Simulation d'envoi des données
             console.log('Inscription Hero:', { name, email, phone });
-            
-            // Afficher le message de succès
-            document.getElementById('heroSuccessMessage').classList.add('show');
-            
+
+            // Envoyer les données à Google Sheets
+    sendToGoogleSheets({ nom: name, email: email, phone: phone }, 'heroSuccessMessage');
+
             // Réinitialiser le formulaire
             event.target.reset();
-            
-            // Masquer le message après 5 secondes
-            setTimeout(() => {
-                document.getElementById('heroSuccessMessage').classList.remove('show');
-            }, 5000);
+
+         
         }
 
         // Fonction pour gérer la soumission du formulaire Modal
         function handleModalSubmit(event) {
             event.preventDefault();
-            
+
             const name = document.getElementById('modalName').value;
             const email = document.getElementById('modalEmail').value;
             const phone = document.getElementById('modalPhone').value;
-            
+
             // Simulation d'envoi des données
             console.log('Inscription Modal:', { name, email, phone });
-            
+
             // Afficher le message de succès
-            document.getElementById('modalSuccessMessage').classList.add('show');
-            
+            sendToGoogleSheets({ nom: name, email: email, phone: phone }, 'modalSuccessMessage');
+
             // Réinitialiser le formulaire
             event.target.reset();
-            
-            // Fermer le modal après 3 secondes
-            setTimeout(() => {
-                closeModal();
-                document.getElementById('modalSuccessMessage').classList.remove('show');
-            }, 3000);
+        }
+
+        function sendToGoogleSheets(data, successElementId) {
+            // URL de votre Web App (à remplacer par votre URL)
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbwP0HA0XzXSNvjQfKffIw__r3XQNrJ2WK-14GRuqJ7ZUtfiaE9LI-gQ95WCRV3odZhjGw/exec';
+
+            fetch(scriptUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Afficher le message de succès
+                document.getElementById(successElementId).classList.add('show');
+                
+                // Masquer le message après 5 secondes
+                setTimeout(() => {
+                    document.getElementById(successElementId).classList.remove('show');
+                }, 5000);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert("Une erreur s'est produite lors de l'envoi du formulaire. Veuillez réessayer.");
+            });
         }
 
         // Smooth scrolling for navigation links
@@ -1172,11 +1199,12 @@ Ma première oeuvre littéraire intitulée  LE VRAI POUVOIR (l'éveil maximal) i
         });
 
         // Empêcher la fermeture du modal avec la touche Escape si souhaité
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeModal();
             }
         });
     </script>
 </body>
+
 </html>
