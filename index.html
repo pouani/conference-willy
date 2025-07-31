@@ -644,6 +644,9 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .modal-subtitle {
+                display: none;
+            }
             .nav-links {
                 display: none;
             }
@@ -754,7 +757,7 @@
                 📍 Hôtel LEWAT, Douala<br>
                 🆓 ENTRÉE GRATUITE
             </div>
-            <p>Ne manquez pas cette opportunité unique de découvrir votre "pourquoi" de la vie. Places limitées !</p>
+            <p class="modal-subtitle">Ne manquez pas cette opportunité unique de découvrir votre "pourquoi" de la vie. Places limitées !</p>
 
             <form class="signup-form" onsubmit="handleModalSubmit(event)">
                 <div id="modalSuccessMessage" class="success-message">
