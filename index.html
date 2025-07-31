@@ -1142,6 +1142,8 @@ Aujourd'hui, je me suis donné comme engagement sociétal  d'accompagner des ét
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
                 },
                 body: JSON.stringify(data),
             })
